@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ADX Calculator – Upload File</title>
+    
+  </head>
+
+  <body class="bg-light p-4">
+    <div class="container mt-4">
+      <h2 class="mb-4">Upload OHLC CSV File</h2>
+
+      <form
+        action="{% url 'process_file' %}"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        {% csrf_token %}
+
+        <div class="form-group">
+          <label>Select CSV File:</label>
+          <input type="file" name="csv_file" class="form-control" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">
+          Upload & Calculate ADX
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

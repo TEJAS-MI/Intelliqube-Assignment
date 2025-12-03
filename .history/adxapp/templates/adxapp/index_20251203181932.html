@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>ADX Calculator — Upload</title>
+
+    <!-- Bootstrap 4 (official CDN) -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-GzZ+6x0fK2R3a6FQ0QW0/k3s6e8m6s8Xb2bFQFJI9P0vFv+Yz2vGim8u3z2k9xqj"
+      crossorigin="anonymous"
+    />
+
+    <!-- Your custom styles -->
+    <link href="{% static 'adxapp/css/styles.css' %}" rel="stylesheet" />
+  </head>
+  <body class="bg-light">
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title mb-3">ADX Calculator</h3>
+              <p class="text-muted">
+                Upload an OHLC CSV (Open, High, Low, Close). Python 3.6
+                compatible.
+              </p>
+
+              <!-- Error alert -->
+              {% if error %}
+              <div class="alert alert-danger" role="alert">{{ error }}</div>
+              {% endif %}
+
+              <!-- Upload form -->
+              <form
+                id="uploadForm"
+                action="{% url 'process_file' %}"
+                method="post"
+                enctype="multipart/form-data"
+                novalidate
+              >
+                {% csrf_token %}
+                <div id="dropZone" class="p-4 mb-3 text-center rounded">
+                  <p class="mb-2">
+                    <strong>Drag &amp; drop your CSV here</strong>
+                  </p>
+                  <small class="text-muted d-block mb-3"
+                    >or click to choose file</small
+                  >
+
+                  <input
+                    id="csvInput"
+                    name="csv_file"
+                    type="file"
+                    accept=".csv"
+                    class="d-none"
+                    required
+                  />
+                  <button
+                    id="chooseBtn"
+                    type="button"
+                    class="btn btn-outline-primary btn-sm"
+                  >
+                    Choose File
+                  </button>
+                  <div id="fileName" class="mt-2 text-truncate"></div>
+                </div>
+
+                <div class="form-group text-right">
+                  <button type="submit" class="btn btn-primary">
+                    Upload & Calculate ADX
+                  </button>
+                </div>
+              </form>
+
+              <hr />
+
+              <div class="small text-muted">
+                <strong>Notes:</strong>
+                <ul class="mb-0">
+                  <li>
+                    CSV must contain columns:
+                    <code>Open, High, Low, Close</code> (case-insensitive).
+                  </li>
+                  <li>
+                    If your file contains a first column of datetime, it's
+                    detected and preserved.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mt-3">
+            <a class="text-muted small" href="#">Need help? Ping me.</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional Bootstrap JS & dependencies (for nice interactions) -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Small JS to handle drag/drop and file UI -->
+    <script>
+      (function () {
+        const drop = document.getElementById("dropZone");
+        const input = document.getElementById("csvInput");
+        const chooseBtn = document.getElementById("chooseBtn");
+        const fileName = document.getElementById("fileName");
+
+        chooseBtn.addEventListener("click", () => input.click());
+
+        input.addEventListener("change", () => {
+          if (input.files.length) fileName.textContent = input.files[0].name;
+        });
+
+        ["dragenter", "dragover"].forEach((evt) => {
+          drop.addEventListener(evt, (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            drop.classList.add("drop-over");
+          });
+        });
+
+        ["dragleave", "drop"].forEach((evt) => {
+          drop.addEventListener(evt, (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            drop.classList.remove("drop-over");
+          });
+        });
+
+        drop.addEventListener("drop", (e) => {
+          const dt = e.dataTransfer;
+          if (!dt) return;
+          const files = dt.files;
+          if (!files || !files.length) return;
+          // take first file
+          input.files = files;
+          fileName.textContent = files[0].name;
+        });
+      })();
+    </script>
+  </body>
+</html>

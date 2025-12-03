@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ADX Results</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+  </head>
+
+  <body class="bg-light p-4">
+    <div class="container">
+      <h2 class="mb-4">ADX Calculation Results</h2>
+
+      <!-- Graph Image -->
+      <img
+        src="data:image/png;base64,{{ plot_base64 }}"
+        class="img-fluid mb-4"
+        alt="ADX Graph"
+      />
+
+      <!-- Download Button -->
+      <a href="{% url 'download_csv' %}" class="btn btn-success"
+        >Download Output CSV</a
+      >
+      <a href="{% url 'index' %}" class="btn btn-secondary ml-2"
+        >Upload Another File</a
+      >
+
+      <!-- Preview Table -->
+      <h4 class="mt-5">Preview of Calculated Values</h4>
+      <table class="table table-bordered table-sm mt-3">
+        <thead>
+          <tr>
+            {% for col in preview_columns %}
+            <th>{{ col }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for row in preview_data %}
+          <tr>
+            {% for value in row %}
+            <td>{{ value }}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
