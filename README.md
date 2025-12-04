@@ -1,27 +1,34 @@
-# Intelliqube-Assignment
- ADX Calculator – Intelliqube Assignment
+ # ADX Calculator – Intelliqube Assignment
 
 A Django-based web application that calculates Average Directional Index (ADX) along with +DI, -DI, TR, DM, DX, and smoothed Wilder 14-period values, replicating Excel’s logic exactly.
+
 This project was submitted as part of the Intelliqube Capital technical assignment.
 
- 
- Features:
--Upload OHLC (Open, High, Low, Close) CSV file
--Automatic detection of OHLC columns
--TR, +DM, -DM calculations
--Wilder’s smoothing logic to compute TR14, DM14
--DI14, DX, and final ADX computation
+# Features
+
+Upload OHLC (Open, High, Low, Close) CSV file
+
+Automatic detection of OHLC columns
+
+TR, +DM, -DM calculations
+
+Wilder’s smoothing logic to compute TR14, DM14
+
+DI14, DX, and final ADX computation
 
 Automatically generates:
--Graph of ADX, +DI14, -DI14
--Processed CSV file
--Preview of first 10 rows
+
+Graph of ADX, +DI14, -DI14
+
+Processed CSV file
+
+Preview of first 10 rows
 
 Formatted Excel-like output
 
 Compatible with Python 3.6 (as required)
 
- ADX Formula Summary (as implemented)
+# ADX Formula Summary (as implemented)
 
 This project follows the exact formulas from the assignment:
 
@@ -61,7 +68,7 @@ Row 30 onward:
 
 ADX = (PreviousADX * 13 + CurrentDX) / 14
 
- Project Structure
+# Project Structure
 adxproject/
 │── adxapp/
 │   ├── templates/adxapp/
@@ -78,7 +85,8 @@ adxproject/
 │── manage.py
 │── requirements.txt
 │── README.md
-Technologies Used
+
+# Technologies Used
 
 Python 3.6
 
@@ -92,7 +100,7 @@ Matplotlib
 
 HTML / Bootstrap
 
- Installation & Setup
+# Installation & Setup
 1. Clone the repository
 git clone https://github.com/TEJAS-MI/Intelliqube-Assignment.git
 cd Intelliqube-Assignment
@@ -113,7 +121,7 @@ python manage.py runserver
 6. Open in Browser
 http://127.0.0.1:8000/
 
- How to Use
+# How to Use
 
 Go to the homepage
 
@@ -129,14 +137,11 @@ Table preview
 
 Downloadable CSV
 
- Sample Output
+# Sample Output
 
 The application generates:
 
-- ADX Plot
-- Smoothed values (TR14, +DM14, -DM14)
-- DI14 and DX
-- Final ADX column matching Excel output
-
- 
-
+✔ ADX Plot
+✔ Smoothed values (TR14, +DM14, -DM14)
+✔ DI14 and DX
+✔ Final ADX column matching Excel output
