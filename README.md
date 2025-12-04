@@ -145,3 +145,7 @@ The application generates:
 ✔ Smoothed values (TR14, +DM14, -DM14)
 ✔ DI14 and DX
 ✔ Final ADX column matching Excel output
+
+# Final output what i am getting
+[adx_output.csv](https://github.com/user-attachments/files/23927896/adx_output.csv)
+
