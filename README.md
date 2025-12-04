@@ -146,6 +146,10 @@ The application generates:
 ✔ DI14 and DX
 ✔ Final ADX column matching Excel output
 
+# output (Result) Graph
+<img width="1295" height="680" alt="Assignment output graph" src="https://github.com/user-attachments/assets/4183b4f9-4a05-461c-bbc0-602912745709" />
+
+
 # Final output what i am getting
 [adx_output.csv](https://github.com/user-attachments/files/23927896/adx_output.csv)
 
