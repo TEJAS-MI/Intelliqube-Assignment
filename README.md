@@ -69,22 +69,8 @@ Row 30 onward:
 ADX = (PreviousADX * 13 + CurrentDX) / 14
 
 # Project Structure
-adxproject/
-│── adxapp/
-│   ├── templates/adxapp/
-│   │   ├── index.html
-│   │   ├── result.html
-│   ├── static/img/
-│   │   ├── trading_graph.jpeg
-│   ├── utils.py
-│   ├── views.py
-│   ├── urls.py
-│── adxproject/
-│   ├── settings.py
-│   ├── urls.py
-│── manage.py
-│── requirements.txt
-│── README.md
+<img width="265" height="432" alt="project Structure" src="https://github.com/user-attachments/assets/8215e7d5-8509-4de0-87cc-87a5dcd0092f" />
+
 
 # Technologies Used
 
