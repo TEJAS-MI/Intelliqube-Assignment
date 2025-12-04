@@ -6,23 +6,16 @@ This project was submitted as part of the Intelliqube Capital technical assignme
 
  
  Features:
-Upload OHLC (Open, High, Low, Close) CSV file
-
-Automatic detection of OHLC columns
-
-TR, +DM, -DM calculations
-
-Wilder’s smoothing logic to compute TR14, DM14
-
-DI14, DX, and final ADX computation
+-Upload OHLC (Open, High, Low, Close) CSV file
+-Automatic detection of OHLC columns
+-TR, +DM, -DM calculations
+-Wilder’s smoothing logic to compute TR14, DM14
+-DI14, DX, and final ADX computation
 
 Automatically generates:
-
-Graph of ADX, +DI14, -DI14
-
-Processed CSV file
-
-Preview of first 10 rows
+-Graph of ADX, +DI14, -DI14
+-Processed CSV file
+-Preview of first 10 rows
 
 Formatted Excel-like output
 
@@ -140,13 +133,10 @@ Downloadable CSV
 
 The application generates:
 
-✔ ADX Plot
-✔ Smoothed values (TR14, +DM14, -DM14)
-✔ DI14 and DX
-✔ Final ADX column matching Excel output
+- ADX Plot
+- Smoothed values (TR14, +DM14, -DM14)
+- DI14 and DX
+- Final ADX column matching Excel output
 
  
 
-All computations follow assignment instructions precisely
-
-Fully compatible with Python 3.6 as required
